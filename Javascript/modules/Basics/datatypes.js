@@ -76,3 +76,6 @@ console.log(2 + 1 + '2' + 3 + 4); // 3234
 
 // 0 false "" null undefined NaN document.all -> all these are falsy value, to check this use !! before the thing
 console.log(!!"");
+
+
+// Nan datatype is number because it is failed number operation 
