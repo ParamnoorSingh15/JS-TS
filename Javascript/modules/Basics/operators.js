@@ -61,12 +61,3 @@ console.log(ans);
 // basically to check if it joined with class , objects ,,, it works only with reference types
 
 
-
-
-
-
-
-
-
-
-
