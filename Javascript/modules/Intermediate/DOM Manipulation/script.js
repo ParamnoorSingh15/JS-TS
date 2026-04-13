@@ -17,6 +17,7 @@ let abcde = document.getElementsByClassName("name");
 // The above ones are not used nowadays 
 // The industry uses the given below
 
+// Query selector se agar id select karni ha to # lagana ha , class select karni ha to . lagana ha
 let one = document.querySelector("h1")
 // let two = document.querySelectorAll("h3")
 two = document.querySelector("h3")
