@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do-App</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="heading">Smart To-Do Manager</div>
+
+    <div class="form">
+      <form>
+        <label for="task">Enter your task: </label><input type="text" placeholder="Enter task" id="task" />
+        <label for="priority">Task Priority:</label>
+        <select id="priority" name="priority" required>
+          <option value="" disabled selected>Select priority</option>
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+          <option value="high">High</option>
+          <input type="submit" value="Add">
+        </select>
+      </form>
+    </div>
+
+    <div class="task-container"></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

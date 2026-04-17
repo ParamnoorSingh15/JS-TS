@@ -1,0 +1,208 @@
+:root {
+  --bg: #f4efe7;
+  --surface: rgba(255, 255, 255, 0.78);
+  --surface-strong: #ffffff;
+  --text: #1f2933;
+  --muted: #6b7280;
+  --accent: #ff7a59;
+  --accent-deep: #ef5b3f;
+  --accent-soft: #ffe1d8;
+  --shadow: 0 22px 60px rgba(104, 70, 48, 0.16);
+  --border: rgba(255, 255, 255, 0.58);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  padding: 48px 20px;
+  font-family: "Trebuchet MS", "Gill Sans", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(255, 122, 89, 0.28), transparent 30%),
+    radial-gradient(circle at bottom right, rgba(255, 199, 95, 0.28), transparent 26%),
+    linear-gradient(135deg, #f8f1e8 0%, #f2f6fb 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 26px;
+  overflow-x: hidden;
+}
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  inset: auto;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  filter: blur(16px);
+  z-index: -1;
+}
+
+body::before {
+  top: 60px;
+  left: -70px;
+  background: rgba(255, 122, 89, 0.18);
+}
+
+body::after {
+  right: -80px;
+  bottom: 30px;
+  background: rgba(61, 179, 166, 0.18);
+}
+
+.heading,
+.form,
+.task-container {
+  width: min(100%, 760px);
+}
+
+.heading {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-align: center;
+  color: #132238;
+  text-shadow: 0 10px 30px rgba(255, 255, 255, 0.55);
+}
+
+.heading::after {
+  content: "Organize today with clarity and calm";
+  display: block;
+  margin-top: 10px;
+  font-family: "Trebuchet MS", "Gill Sans", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.form {
+  backdrop-filter: blur(18px);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  box-shadow: var(--shadow);
+  padding: 28px;
+}
+
+form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+label {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #324155;
+}
+
+input[type="text"],
+select {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid rgba(31, 41, 51, 0.12);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--text);
+  font-size: 1rem;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+input[type="text"]::placeholder {
+  color: #97a1ad;
+}
+
+input[type="text"]:focus,
+select:focus {
+  outline: none;
+  border-color: rgba(255, 122, 89, 0.65);
+  box-shadow: 0 0 0 5px rgba(255, 122, 89, 0.16);
+  transform: translateY(-1px);
+}
+
+input[type="submit"] {
+  justify-self: start;
+  margin-top: 8px;
+  padding: 14px 24px;
+  border: 0;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-deep) 100%);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  box-shadow: 0 14px 28px rgba(239, 91, 63, 0.28);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    filter 0.2s ease;
+}
+
+input[type="submit"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 34px rgba(239, 91, 63, 0.34);
+  filter: saturate(1.08);
+}
+
+input[type="submit"]:active {
+  transform: translateY(0);
+}
+
+.task-container {
+  min-height: 220px;
+  padding: 26px;
+  border: 2px dashed rgba(50, 65, 85, 0.18);
+  border-radius: 28px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.66)),
+    var(--accent-soft);
+  box-shadow: var(--shadow);
+}
+
+.task-container:empty::before {
+  content: "Your tasks will appear here as neat little wins.";
+  display: grid;
+  place-items: center;
+  min-height: 160px;
+  text-align: center;
+  font-size: 1.08rem;
+  font-weight: 600;
+  color: #556274;
+}
+
+@media (max-width: 640px) {
+  body {
+    padding: 28px 14px;
+    gap: 20px;
+  }
+
+  .form,
+  .task-container {
+    padding: 20px;
+    border-radius: 22px;
+  }
+
+  .heading::after {
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+  }
+
+  input[type="submit"] {
+    width: 100%;
+    justify-self: stretch;
+  }
+}
